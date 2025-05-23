@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
         <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-[#e35c75]/10 to-transparent" />
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-28 relative z-10">
         <div className="max-w-5xl mx-auto bg-black/50 backdrop-blur-md rounded-2xl border border-white/5 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-8 md:p-12 lg:p-16 bg-gradient-to-br from-[#1a0a2e] to-black">

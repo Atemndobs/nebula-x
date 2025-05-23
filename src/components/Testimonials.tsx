@@ -54,7 +54,7 @@ const Testimonials: React.FC = () => {
   
   return (
     <section className="py-24 bg-gradient-to-br from-[#140726] via-[#1a0a2e] to-[#140726] relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-28 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl p-12">
             <div className="flex flex-col items-center text-center">

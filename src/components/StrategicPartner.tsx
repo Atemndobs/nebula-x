@@ -32,7 +32,7 @@ const StrategicPartner: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black" />
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-28 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img 

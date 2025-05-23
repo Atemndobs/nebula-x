@@ -9,8 +9,8 @@ const About: React.FC = () => {
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#e35c75]/10 rounded-full filter blur-[70px]" />
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="container mx-auto px-28 relative z-10">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
           <div className="lg:w-1/2">
             <div className="text-sm uppercase tracking-wider text-[#e35c75]">About Us</div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 mb-6 leading-tight">

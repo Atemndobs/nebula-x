@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
   
   return (
     <section id="projects" className="py-24 bg-black">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-28">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
             <div className="text-sm uppercase tracking-wider text-[#e35c75] mb-2">Our Work</div>

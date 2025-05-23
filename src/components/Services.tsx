@@ -69,7 +69,7 @@ const Services: React.FC = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#e35c75]/10 rounded-full filter blur-[120px]" />
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-28 relative z-10">
         <div className="text-center mb-16">
           <div className="text-sm uppercase tracking-wider text-[#e35c75] mb-2">Core Services</div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
