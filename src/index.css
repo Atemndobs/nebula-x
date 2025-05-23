@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #f64661;
+  --primary-dark: #f64661;
+  --secondary: #8a1be2;
+  --background: #0a0212;
+  --background-light: #140726;
+}
+
+body {
+  @apply bg-black text-white font-sans;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+@keyframes text-fade {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 10px var(--primary), 0 0 30px var(--primary);
+  }
+}
+
+.animate-text-fade {
+  animation: text-fade 3s infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
