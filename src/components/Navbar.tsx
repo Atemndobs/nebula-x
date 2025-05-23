@@ -18,13 +18,13 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4">
+    <nav className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4">
       <div 
         className={`
           rounded-[12px] transition-all duration-300 backdrop-blur-md
           ${isScrolled 
-            ? 'bg-black/60 py-3' 
-            : 'bg-black/20 py-5'
+            ? 'bg-black/80 py-3' 
+            : 'bg-black/50 py-5'
           }
         `}
       >

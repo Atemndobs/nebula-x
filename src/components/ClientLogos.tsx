@@ -42,12 +42,22 @@ const ClientLogos: React.FC = () => {
             key={logo.name} 
             className="flex justify-center items-center opacity-70 hover:opacity-100 transition-opacity duration-300"
           >
-            <img 
-              src={logo.url}
-              alt={`${logo.name} logo`}
-              className="h-8 object-contain"
-              style={{ filter: 'brightness(0) invert(1)' }}
-            />
+            {logo.name === 'Prism' ? (
+              <div className="flex items-center gap-2">
+                <img 
+                  src={logo.url}
+                  alt={`${logo.name} logo`}
+                  className="h-8 object-contain invert brightness-0"
+                />
+                <span className="text-white font-medium">Prismic</span>
+              </div>
+            ) : (
+              <img 
+                src={logo.url}
+                alt={`${logo.name} logo`}
+                className={`h-8 object-contain ${['Dropbox', 'Pingdom'].includes(logo.name) ? 'invert brightness-0' : ''}`}
+              />
+            )}
           </div>
         ))}
       </div>
