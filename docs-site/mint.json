@@ -1,0 +1,36 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Nebula Logix",
+  "logo": {
+    "light": "/images/logo-light.png",
+    "dark": "/images/logo-dark.png"
+  },
+  "favicon": "/favicon.ico",
+  "colors": {
+    "primary": "#4F46E5",
+    "light": "#6366F1",
+    "dark": "#4338CA"
+  },
+  "topbarLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Atemndobs/nebula-x"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction",
+        "quick-start"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/authentication",
+        "guides/routing"
+      ]
+    }
+  ]
+}

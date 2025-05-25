@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Mintlify
+.mint/
+
+# Environment variables
+.env
+
+# Build output
+build/
+.mintlify/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

@@ -40,3 +40,6 @@ node_modules/
 # Task files
 # tasks.json - Commented out to allow tracking of tasks
 # tasks/ - Commented out to allow tracking of tasks 
+# Mintlify
+.mint/
+mintlify.json
