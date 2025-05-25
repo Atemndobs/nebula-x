@@ -102,15 +102,15 @@ const AppContent = () => {
           }
         />
         <Route path="/dashboard" element={
-                  <ProtectedRoute>
-                    <DashboardPage />
-                  </ProtectedRoute>
-                } />
-                <Route path="/projects" element={
-                  <ProtectedRoute>
-                    <ProjectsPage />
-                  </ProtectedRoute>
-                } />
+          <ProtectedRoute>
+            <DashboardPage />
+          </ProtectedRoute>
+        } />
+        <Route path="/projects" element={
+          <ProtectedRoute>
+            <ProjectsPage />
+          </ProtectedRoute>
+        } />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
