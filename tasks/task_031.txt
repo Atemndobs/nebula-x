@@ -1,0 +1,15 @@
+# Task ID: 31
+# Title: Accessibility Testing
+# Status: pending
+# Dependencies: 23, 24, 25, 26, 27
+# Priority: high
+# Description: Ensure the application meets accessibility standards
+# Details:
+- Run automated accessibility tests (axe, pa11y)
+- Test with screen readers
+- Verify keyboard navigation
+- Check color contrast ratios
+- Test with different zoom levels
+
+# Test Strategy:
+Ensure WCAG 2.1 AA compliance and fix all critical accessibility issues

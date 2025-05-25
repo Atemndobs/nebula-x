@@ -1,0 +1,14 @@
+# Task ID: 33
+# Title: Set Up GitHub OAuth in Supabase
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Configure GitHub OAuth provider in Supabase dashboard
+# Details:
+- Create OAuth app in GitHub Developer Settings
+- Add callback URLs to GitHub OAuth app
+- Configure GitHub OAuth in Supabase dashboard
+- Add GitHub OAuth credentials to Supabase environment variables
+
+# Test Strategy:
+Verify GitHub OAuth configuration in Supabase dashboard

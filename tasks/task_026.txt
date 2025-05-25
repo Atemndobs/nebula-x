@@ -1,0 +1,15 @@
+# Task ID: 26
+# Title: Component Tests: Home Page Sections
+# Status: pending
+# Dependencies: 17
+# Priority: high
+# Description: Test all home page sections (Hero, Services, Projects, etc.)
+# Details:
+- Test Hero section rendering and animations
+- Test Services section with service cards
+- Test Projects showcase and filtering
+- Test Testimonials carousel
+- Test Contact form validation
+
+# Test Strategy:
+Ensure all home page sections render correctly and are interactive

@@ -1,0 +1,15 @@
+# Task ID: 19
+# Title: Set Up Test Coverage Reporting
+# Status: pending
+# Dependencies: 16, 17, 18
+# Priority: medium
+# Description: Configure test coverage reporting and thresholds
+# Details:
+- Configure Jest coverage reporting
+- Set minimum coverage thresholds
+- Add coverage reporting to CI/CD
+- Generate HTML coverage reports
+- Add badge to README
+
+# Test Strategy:
+Verify coverage reports are generated and meet thresholds

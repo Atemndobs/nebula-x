@@ -1,0 +1,14 @@
+# Task ID: 34
+# Title: Set Up Google OAuth in Supabase
+# Status: pending
+# Dependencies: 33
+# Priority: high
+# Description: Configure Google OAuth provider in Supabase dashboard
+# Details:
+- Create OAuth client in Google Cloud Console
+- Add authorized redirect URIs in Google Cloud Console
+- Configure Google OAuth in Supabase dashboard
+- Add Google OAuth credentials to Supabase environment variables
+
+# Test Strategy:
+Verify Google OAuth configuration in Supabase dashboard

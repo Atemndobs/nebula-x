@@ -1,0 +1,15 @@
+# Task ID: 10
+# Title: Optimize for Performance
+# Status: pending
+# Dependencies: 9
+# Priority: high
+# Description: Optimize the website for better performance
+# Details:
+- Optimize images
+- Implement code splitting
+- Add lazy loading
+- Minify assets
+- Test performance
+
+# Test Strategy:
+Run Lighthouse audit and fix any issues

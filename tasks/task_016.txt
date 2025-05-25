@@ -1,0 +1,15 @@
+# Task ID: 16
+# Title: Set Up Unit Testing Framework
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Configure Jest and React Testing Library for unit testing
+# Details:
+- Install Jest and React Testing Library
+- Configure Jest with TypeScript
+- Set up test utilities
+- Create basic test examples
+- Add test scripts to package.json
+
+# Test Strategy:
+Verify that basic tests run successfully

@@ -29,3 +29,14 @@ dist-ssr
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Added by Claude Task Master
+dev-debug.log
+# Dependency directories
+node_modules/
+# Environment variables
+.vscode
+# OS specific
+# Task files
+# tasks.json - Commented out to allow tracking of tasks
+# tasks/ - Commented out to allow tracking of tasks 

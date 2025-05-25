@@ -1,0 +1,15 @@
+# Task ID: 25
+# Title: Component Tests: Core UI
+# Status: pending
+# Dependencies: 17
+# Priority: high
+# Description: Test core UI components (Navbar, Footer, etc.)
+# Details:
+- Test Navbar rendering and responsive behavior
+- Test Footer links and content
+- Test mobile menu toggle
+- Test active link highlighting
+- Test theme switching (if applicable)
+
+# Test Strategy:
+Ensure all UI components render correctly and are accessible

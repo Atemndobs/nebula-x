@@ -1,0 +1,96 @@
+# Nebula Logix - Cloud Solutions Platform
+
+## Project Overview
+Nebula Logix is a modern web application that showcases cloud consulting services with a focus on digital transformation. The platform features a responsive design with a striking visual identity, including a hero section, about us, services, projects, and contact sections.
+
+## Core Features
+
+### 1. Responsive Navigation Bar
+- Fixed position with blur effect
+- Logo with Nebula Logix branding
+- Navigation links (About, Services, Projects, Why Nebula)
+- Call-to-action button (Let's Talk)
+- Smooth scroll behavior
+
+### 2. Hero Section
+- Full-height hero card with gradient background
+- Team member avatars
+- Main headline with highlighted text
+- Subheading text
+- Primary call-to-action button
+- Client logos carousel
+- Animated background elements
+
+### 3. About Us Section
+- Company introduction
+- Mission and vision
+- Core values
+- Team member highlights
+
+### 4. Services Section
+- Cloud consulting services
+- Digital transformation solutions
+- Custom development
+- Implementation strategies
+
+### 5. Projects Showcase
+- Portfolio of past projects
+- Case studies
+- Client testimonials
+- Project filtering
+
+### 6. Why Choose Us
+- Unique selling points
+- Competitive advantages
+- Client success metrics
+- Technology stack
+
+### 7. Contact Section
+- Contact form
+- Company information
+- Social media links
+- Interactive map
+
+## Technical Requirements
+
+### Frontend
+- React 18+ with TypeScript
+- TailwindCSS for styling
+- Responsive design (mobile-first approach)
+- Smooth animations and transitions
+- Lazy loading for images
+- Optimized performance
+
+### Backend (Future)
+- Supabase integration
+- User authentication
+- Contact form handling
+- Content management system
+
+### Development Tools
+- Vite for build tooling
+- ESLint and Prettier for code quality
+- Git for version control
+- Playwright for end-to-end testing
+
+## User Stories
+
+1. As a visitor, I want to easily navigate the website to find information about services
+2. As a potential client, I want to see examples of previous work to evaluate expertise
+3. As a business owner, I want to understand the company's approach to digital transformation
+4. As a technical lead, I want to learn about the technology stack and capabilities
+5. As a decision maker, I want to easily contact the company for inquiries
+
+## Success Metrics
+- Increased contact form submissions
+- Improved time on site
+- Higher engagement with portfolio items
+- Better conversion rates from visitor to lead
+- Positive user feedback on design and usability
+
+## Future Enhancements
+- Blog section for industry insights
+- Client portal for project management
+- Interactive cloud solutions calculator
+- Multi-language support
+- Dark/light mode toggle

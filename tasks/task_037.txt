@@ -1,0 +1,15 @@
+# Task ID: 37
+# Title: Update Login Component with Social Auth
+# Status: pending
+# Dependencies: 36
+# Priority: high
+# Description: Integrate social login buttons into the Login component
+# Details:
+- Add SocialLoginButtons to Login component
+- Add divider between email/password and social login options
+- Handle loading states during social login
+- Display error messages for social login failures
+- Ensure proper spacing and styling
+
+# Test Strategy:
+Component tests for updated Login component with social auth

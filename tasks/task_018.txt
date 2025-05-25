@@ -1,0 +1,15 @@
+# Task ID: 18
+# Title: Implement E2E Test Suite
+# Status: pending
+# Dependencies: 17
+# Priority: high
+# Description: Create end-to-end tests for critical user flows
+# Details:
+- Set up Playwright test structure
+- Create page object models for main pages
+- Implement tests for critical user journeys
+- Add visual regression testing
+- Configure cross-browser testing
+
+# Test Strategy:
+Verify all critical paths work across different browsers

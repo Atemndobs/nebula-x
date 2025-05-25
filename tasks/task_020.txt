@@ -1,0 +1,15 @@
+# Task ID: 20
+# Title: Configure CI/CD for Testing
+# Status: pending
+# Dependencies: 19
+# Priority: high
+# Description: Set up automated testing in CI/CD pipeline
+# Details:
+- Set up GitHub Actions workflow
+- Configure test matrix (OS, Node versions)
+- Add caching for dependencies
+- Set up test result reporting
+- Configure deployment gates based on test results
+
+# Test Strategy:
+Verify tests run automatically on push/PR and block merges if tests fail

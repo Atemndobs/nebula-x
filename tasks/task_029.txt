@@ -1,0 +1,15 @@
+# Task ID: 29
+# Title: E2E Tests: Core User Journeys
+# Status: pending
+# Dependencies: 18, 28
+# Priority: high
+# Description: Test critical user journeys across the application
+# Details:
+- Test navigation between all main sections
+- Test form submissions with validation
+- Test interactive elements (modals, dropdowns, etc.)
+- Test responsive behavior across devices
+- Test error handling and recovery
+
+# Test Strategy:
+Ensure all critical user journeys work as expected in a real browser

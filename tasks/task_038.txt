@@ -1,0 +1,15 @@
+# Task ID: 38
+# Title: Test Social Authentication Flow
+# Status: pending
+# Dependencies: 37
+# Priority: high
+# Description: Create end-to-end tests for social authentication
+# Details:
+- Write Playwright tests for GitHub OAuth flow
+- Write Playwright tests for Google OAuth flow
+- Test error scenarios (user denies permission, network issues)
+- Test account linking scenarios
+- Verify user data is properly saved in the database
+
+# Test Strategy:
+End-to-end tests covering all social auth scenarios

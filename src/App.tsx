@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { AuthCallback } from './pages/AuthCallback';
 import { Navbar } from './components/Navbar';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import Hero from './components/Hero';
@@ -15,10 +16,39 @@ import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { Spinner } from './components/ui/Spinner';
+
+const Home = () => {
+  const [showProfile, setShowProfile] = useState(false);
+  
+  const handleProfileClick = () => {
+    setShowProfile(!showProfile);
+  };
+
+  return (
+    <>
+      <Navbar onProfileClick={handleProfileClick} showProfile={showProfile} />
+      <main className="pt-16">
+        <Hero />
+        <About />
+        <Services />
+        <IndustrySectors />
+        <Values />
+        <StrategicPartner />
+        <Projects />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 const AppContent = () => {
   const { user, loading } = useAuth();
   const [showProfile, setShowProfile] = useState(false);
+  const location = useLocation();
+  const isAuthCallback = location.pathname === '/auth/callback';
 
   useEffect(() => {
     document.title = 'Nebula Logix | Cloud Solutions';
@@ -33,24 +63,27 @@ const AppContent = () => {
     setShowProfile(!showProfile);
   };
 
-  if (loading) {
+  if (loading && !isAuthCallback) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+        <Spinner size="lg" />
       </div>
     );
   }
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <LoginPage />} />
+    <Routes>
+        <Route path="/auth/callback" element={<AuthCallback />} />
+        <Route 
+          path="/login" 
+          element={user ? <Navigate to="/dashboard" replace /> : <LoginPage />} 
+        />
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
               <>
-                <Navbar onProfileClick={handleProfileClick} showProfile={showProfile} />
+                {/* <Navbar onProfileClick={handleProfileClick} showProfile={showProfile} /> */}
                 <DashboardPage />
               </>
             </ProtectedRoute>
@@ -59,31 +92,20 @@ const AppContent = () => {
         <Route
           path="/"
           element={
-            <>
-              <Navbar onProfileClick={handleProfileClick} showProfile={showProfile} />
-              <main className="pt-16">
-                <Hero />
-                <About />
-                <Services />
-                <IndustrySectors />
-                <Values />
-                <StrategicPartner />
-                <Projects />
-                <Testimonials />
-                <Contact />
-              </main>
-              <Footer />
-            </>
+            <Home />
           }
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </Router>
   );
 };
 
-function App() {
-  return <AppContent />;
-}
+const App = () => {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+};
 
 export default App;

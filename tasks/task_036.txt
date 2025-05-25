@@ -1,0 +1,15 @@
+# Task ID: 36
+# Title: Create Social Login Buttons Component
+# Status: pending
+# Dependencies: 35
+# Priority: high
+# Description: Create reusable social login buttons for GitHub and Google
+# Details:
+- Create SocialLoginButtons component
+- Style buttons to match design system
+- Add loading states
+- Make buttons accessible
+- Add tooltips and labels
+
+# Test Strategy:
+Component tests for SocialLoginButtons

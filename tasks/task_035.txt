@@ -1,0 +1,14 @@
+# Task ID: 35
+# Title: Update AuthContext for Social Login
+# Status: pending
+# Dependencies: 33, 34
+# Priority: high
+# Description: Add social login methods to the authentication context
+# Details:
+- Add signInWithGitHub method to AuthContext
+- Add signInWithGoogle method to AuthContext
+- Update auth types to include new methods
+- Handle OAuth callbacks and error states
+
+# Test Strategy:
+Unit tests for new auth methods and integration tests for social login flow

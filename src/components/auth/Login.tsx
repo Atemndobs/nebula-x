@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
+import { SocialLoginButtons } from './SocialLoginButtons';
 
 interface LoginProps {
   onClose: () => void;
@@ -8,16 +9,20 @@ interface LoginProps {
 export const Login = ({ onClose }: LoginProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const { signIn } = useAuth();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { signIn, error } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setIsSubmitting(true);
     try {
       await signIn(email, password);
+      // onClose will be called by the AuthProvider when authentication is successful
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to sign in');
+      // Error is already handled in the AuthContext
+      console.error('Login error:', err);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -69,17 +74,21 @@ export const Login = ({ onClose }: LoginProps) => {
           <div className="space-y-2">
             <button
               type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+              disabled={isSubmitting}
             >
-              Sign in
+              {isSubmitting ? 'Signing in...' : 'Sign in'}
             </button>
             <button
               type="button"
               onClick={onClose}
               className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              disabled={isSubmitting}
             >
               Cancel
             </button>
+            
+            <SocialLoginButtons />
           </div>
         </div>
       </form>

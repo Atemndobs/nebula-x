@@ -1,0 +1,15 @@
+# Task ID: 28
+# Title: E2E Tests: Authentication Flow
+# Status: pending
+# Dependencies: 18
+# Priority: high
+# Description: Create end-to-end tests for authentication flows
+# Details:
+- Test user registration
+- Test login/logout functionality
+- Test password reset flow
+- Test protected route access
+- Test session persistence
+
+# Test Strategy:
+Verify all authentication scenarios work correctly in a real browser
