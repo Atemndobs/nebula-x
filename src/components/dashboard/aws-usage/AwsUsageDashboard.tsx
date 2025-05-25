@@ -192,30 +192,30 @@ export const AwsUsageDashboard: React.FC = () => {
       
       {/* Tabs for different sections */}
       <Tabs defaultValue="ec2" className="space-y-4">
-        <TabsList className="bg-black/80 border border-white/10 p-1 rounded-lg backdrop-blur-sm">
+        <TabsList className="bg-transparent border border-white/10 p-1 rounded-lg">
           <TabsTrigger 
             value="ec2"
-            className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#f64661] data-[state=active]:to-[#9c2cf3] data-[state=active]:text-white data-[state=active]:border-0 rounded-md px-4 py-1.5 text-sm font-medium transition-colors hover:bg-white/5"
+            className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:border-white/20 rounded-md px-4 py-1.5 text-sm font-medium transition-colors hover:bg-white/5 border border-transparent"
           >
             EC2
           </TabsTrigger>
           <TabsTrigger 
             value="s3"
-            className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#f64661] data-[state=active]:to-[#9c2cf3] data-[state=active]:text-white data-[state=active]:border-0 rounded-md px-4 py-1.5 text-sm font-medium transition-colors hover:bg-white/5"
+            className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:border-white/20 rounded-md px-4 py-1.5 text-sm font-medium transition-colors hover:bg-white/5 border border-transparent"
           >
             S3
           </TabsTrigger>
           <TabsTrigger 
-            value="dynamodb"
-            className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#f64661] data-[state=active]:to-[#9c2cf3] data-[state=active]:text-white data-[state=active]:border-0 rounded-md px-4 py-1.5 text-sm font-medium transition-colors hover:bg-white/5"
-          >
-            DynamoDB
-          </TabsTrigger>
-          <TabsTrigger 
             value="iam"
-            className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#f64661] data-[state=active]:to-[#9c2cf3] data-[state=active]:text-white data-[state=active]:border-0 rounded-md px-4 py-1.5 text-sm font-medium transition-colors hover:bg-white/5"
+            className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:border-white/20 rounded-md px-4 py-1.5 text-sm font-medium transition-colors hover:bg-white/5 border border-transparent"
           >
             IAM
+          </TabsTrigger>
+          <TabsTrigger 
+            value="dynamodb"
+            className="data-[state=active]:bg-black data-[state=active]:text-white data-[state=active]:border-white/20 rounded-md px-4 py-1.5 text-sm font-medium transition-colors hover:bg-white/5 border border-transparent"
+          >
+            DynamoDB
           </TabsTrigger>
         </TabsList>
         

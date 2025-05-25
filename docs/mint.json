@@ -49,7 +49,8 @@
             "architecture/decisions/0009-dashboard-navigation",
             "architecture/decisions/0010-routing-implementation",
             "architecture/decisions/0011-shadcn-ui-integration",
-            "architecture/decisions/0012-aws-usage-dashboard"
+            "architecture/decisions/0012-aws-usage-dashboard",
+            "architecture/decisions/0013-project-dashboard-implementation"
           ]
         }
       ]
