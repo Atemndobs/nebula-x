@@ -1,0 +1,226 @@
+---
+title: "0012 - AWS Usage Dashboard Implementation"
+date: 2025-05-25
+deciders: ["Nebula Logix Team"]
+status: accepted
+---
+
+# AWS Usage Dashboard
+
+## Context and Problem Statement
+
+Clients using Nebula Logix need visibility into their AWS resource usage without accessing the AWS Console. We need to implement a dashboard that displays key AWS metrics in a user-friendly way.
+
+## Decision Drivers
+
+* Need for clients to monitor their AWS usage
+* Requirement for a responsive, modern UI
+* Need for mock data during development
+* Integration with existing authentication system
+
+## Considered Options
+
+1. **Custom Dashboard with Shadcn UI**
+   - ✅ Full control over design and functionality
+   - ✅ Consistent with existing UI components
+   - ✅ Easy to maintain and extend
+
+2. **AWS QuickSight Integration**
+   - ❌ Less control over UI/UX
+   - ❌ Additional costs
+   - ❌ More complex to implement
+
+3. **Third-party Dashboard Solution**
+   - ❌ Potential security concerns
+   - ❌ Additional costs
+   - ❌ Less customization options
+
+## Decision
+
+We will implement a custom AWS Usage Dashboard using Shadcn UI components for the following reasons:
+
+* Full control over the user experience
+* Consistent with our existing design system
+* No additional costs for third-party services
+* Better performance with direct API integration
+
+## Implementation Details
+
+### Architecture
+
+The AWS Usage Dashboard is built using the following technologies:
+- **React 18** with TypeScript for type safety
+- **Shadcn UI** components for consistent UI
+- **Tailwind CSS** for styling
+- **React Query** for data fetching and caching
+- **Recharts** for data visualization
+
+### Component Structure
+
+1. **AwsUsageDashboard**
+   - Main container component
+   - Manages tab state and data fetching
+   - Composes various dashboard cards and sections
+
+2. **Dashboard Cards**
+   - **ResourceCard**: Displays key metrics with icons and progress indicators
+   - **InstanceTable**: Shows detailed instance information
+   - **S3BucketsTable**: Displays S3 bucket details
+   - **IAMKeysTable**: Lists IAM access keys
+   - **DynamoDBMetrics**: Shows DynamoDB table metrics
+
+3. **Shared Components**
+   - **ProgressBar**: Custom progress indicator with status colors
+   - **StatusBadge**: Displays status with appropriate colors
+   - **ResourceIcon**: Consistent iconography for AWS services
+
+### Data Flow
+
+1. **Data Fetching**
+   - Uses React Query's `useQuery` for data fetching
+   - Implements loading and error states
+   - Supports mock data for development
+
+2. **State Management**
+   - Local component state for UI interactions
+   - URL parameters for tab state persistence
+   - Context API for global state when needed
+
+### Styling Approach
+
+- Uses Tailwind CSS for utility-first styling
+- Implements dark/light mode support
+- Responsive design for all screen sizes
+- Custom animations for loading states
+
+### Key Features
+
+1. **Tabbed Interface**
+   - Clean navigation between AWS services
+   - Persistent tab state in URL
+   - Smooth transitions between views
+
+2. **Real-time Metrics**
+   - Auto-refreshing data
+   - Visual indicators for status changes
+   - Tooltips for additional context
+
+3. **Accessibility**
+   - ARIA labels and roles
+   - Keyboard navigation
+   - High contrast support
+
+### Future Enhancements
+
+1. **Additional AWS Services**
+   - RDS monitoring
+   - Lambda function metrics
+   - CloudFront analytics
+
+2. **Customization**
+   - User-defined dashboards
+   - Custom metrics and thresholds
+   - Exportable reports
+
+3. **Integration**
+   - AWS CloudWatch integration
+   - Alerting and notifications
+   - Multi-account support
+
+## Components
+
+1. **AWS Usage Overview Card**
+   - Total monthly cost
+   - Cost trend (compared to previous period)
+   - Budget utilization
+
+2. **EC2 Instances**
+   - Running/Stopped instances count
+   - CPU/Memory utilization
+   - Instance types distribution
+
+3. **S3 Storage**
+   - Total storage used
+   - Bucket-wise distribution
+   - Storage class distribution
+
+4. **IAM Access Keys**
+   - Active/Inactive keys
+   - Key age
+   - Last used date
+
+### Mock Data Structure
+
+```typescript
+interface AwsUsageData {
+  overview: {
+    monthlyCost: number;
+    costTrend: number; // percentage
+    budgetUtilization: number; // percentage
+  };
+  ec2: {
+    instances: {
+      running: number;
+      stopped: number;
+      total: number;
+    };
+    utilization: {
+      cpu: number; // percentage
+      memory: number; // percentage
+    };
+    instanceTypes: Array<{
+      type: string;
+      count: number;
+    }>;
+  };
+  s3: {
+    totalStorage: number; // in GB
+    buckets: Array<{
+      name: string;
+      size: number; // in GB
+      objects: number;
+    }>;
+    storageClasses: Array<{
+      class: string;
+      size: number; // in GB
+    }>;
+  };
+  iam: {
+    accessKeys: {
+      active: number;
+      inactive: number;
+      total: number;
+    };
+    keys: Array<{
+      id: string;
+      status: 'Active' | 'Inactive';
+      created: string; // ISO date
+      lastUsed?: string; // ISO date
+      age: number; // days
+    }>;
+  };
+}
+```
+
+### UI Components
+
+- **Cards** for each metric group
+- **Charts** for visual representation
+- **Tables** for detailed data
+- **Responsive layout** for all screen sizes
+
+## Consequences
+
+- Clients get better visibility into their AWS usage
+- Reduced need for AWS Console access
+- Improved user experience with a consistent UI
+- Easier to add more metrics in the future
+
+## Next Steps
+
+1. Implement the dashboard components
+2. Create mock data service
+3. Add real AWS integration
+4. Implement authentication and authorization
+5. Add tests
+6. Deploy to staging for review

@@ -1,0 +1,74 @@
+---
+title: Admin User Flow Diagrams
+description: Application flow for admin users in Nebula Logix
+---
+
+# Admin User Flows
+
+## 1. Authentication & Dashboard Access
+
+```mermaid
+sequenceDiagram
+    participant U as Admin User
+    participant FE as Frontend
+    participant BE as Backend
+    participant AWS as AWS Services
+    
+    U->>FE: 1. Visits landing page
+    U->>FE: 2. Navigates to /login
+    U->>FE: 3. Enters admin credentials
+    FE->>BE: 4. POST /api/auth/login
+    BE-->>FE: 5. JWT Token + User Data
+    FE->>FE: 6. Store token & user role
+    FE->>U: 7. Redirect to /dashboard
+    U->>FE: 8. Views dashboard
+    FE->>BE: 9. GET /api/aws/usage (with JWT)
+    BE->>AWS: 10. Request AWS usage data
+    AWS-->>BE: 11. Return AWS metrics
+    BE-->>FE: 12. Return formatted data
+    FE->>U: 13. Display AWS usage dashboard
+```
+
+## 2. AWS Data Access Flow
+
+```mermaid
+flowchart LR
+    A[Admin Dashboard] -->|1. Request| B[API Gateway]
+    B -->|2. Authenticate| C[Auth Service]
+    C -->|3. Validate JWT| D[(User DB)]
+    C -->|4. Verify Admin Role| D
+    B -->|5. Forward Request| E[AWS Service]
+    E -->|6. Get Usage Data| F[(AWS CloudWatch)]
+    F -->|7. Return Metrics| E
+    E -->|8. Process Data| B
+    B -->|9. Return Response| A
+    
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style B fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style C fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style E fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    style F fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+```
+
+### Key Components:
+
+1. **Frontend (React)**
+   - Handles user interface and interactions
+   - Manages authentication state
+   - Displays AWS usage data in dashboard
+
+2. **Backend (Node.js/Express)**
+   - Validates JWT tokens
+   - Enforces role-based access control
+   - Fetches and processes AWS data
+
+3. **AWS Services**
+   - CloudWatch for metrics and monitoring
+   - IAM for secure access control
+   - Other AWS services as needed
+
+### Security Notes:
+- All API requests require valid JWT
+- Admin role verification on sensitive endpoints
+- Rate limiting and request validation
+- AWS credentials securely stored and managed

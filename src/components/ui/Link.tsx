@@ -1,34 +1,34 @@
-import React from 'react';
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
-interface LinkProps {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
+export interface LinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  asChild?: boolean;
+  external?: boolean;
 }
 
-export const Link: React.FC<LinkProps> = ({ 
-  href, 
-  children, 
-  className = '' 
-}) => {
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      window.scrollTo({
-        top: target.getBoundingClientRect().top + window.scrollY - 100,
-        behavior: 'smooth'
-      });
-    }
-  };
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  ({ className, href = "", external, children, ...props }, ref) => {
+    const isExternal = external || href.startsWith("http");
+    
+    return (
+      <a
+        ref={ref}
+        href={href}
+        className={cn(
+          "text-primary underline-offset-4 hover:underline",
+          className
+        )}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  }
+);
 
-  return (
-    <a 
-      href={href}
-      onClick={scrollToSection}
-      className={`text-white hover:text-[#e35c75] transition-colors duration-300 text-sm font-medium ${className}`}
-    >
-      {children}
-    </a>
-  );
-};
+Link.displayName = "Link";
+
+export { Link };

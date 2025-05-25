@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import { ThemeToggle } from '../theme-toggle';
 
 interface DashboardNavbarProps {
   onMenuClick: () => void;
@@ -21,12 +22,12 @@ export const DashboardNavbar: React.FC<DashboardNavbarProps> = ({ onMenuClick })
   };
 
   return (
-    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-40 h-16 flex items-center">
+    <header className="bg-black/80 backdrop-blur-md border-b border-white/5 fixed top-0 left-0 right-0 z-40 h-16 flex items-center">
       <div className="flex items-center justify-between w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center">
           <button
             type="button"
-            className="mr-4 text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="mr-4 text-gray-400 hover:text-white focus:outline-none"
             onClick={onMenuClick}
           >
             <span className="sr-only">Open sidebar</span>
@@ -46,9 +47,12 @@ export const DashboardNavbar: React.FC<DashboardNavbarProps> = ({ onMenuClick })
               />
             </svg>
           </button>
-          <Link to="/dashboard" className="text-xl font-bold text-gray-900">
-            Dashboard
+          <Link to="/dashboard" className="text-xl font-bold bg-gradient-to-r from-[#f64661] to-[#9c2cf3] bg-clip-text text-transparent">
+            Nebula Logix
           </Link>
+        </div>
+        <div className="flex items-center space-x-4">
+          <ThemeToggle />
         </div>
 
         <div className="relative ml-4 flex items-center">

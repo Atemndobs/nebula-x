@@ -1,0 +1,16 @@
+{
+  "name": "nebula-x-docs",
+  "version": "1.0.0",
+  "description": "Mintlify documentation for Nebula Logix application. For app documentation, see the /docs directory.",
+  "main": "index.js",
+  "scripts": {
+    "start": "mintlify dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@mintlify/cli": "^4.0.550"
+  }
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="50" rx="8" fill="#1F2937"/>
+  <path d="M30 15H40V35H30V15ZM35 15V10H40V15H35ZM35 35V30H40V35H35ZM25 20H10V25H25V20ZM25 30H15V25H25V30Z" fill="#E5E7EB"/>
+  <text x="55" y="32" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#E5E7EB">Nebula Logix</text>
+</svg>

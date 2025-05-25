@@ -1,0 +1,38 @@
+.progressContainer {
+  height: 0.5rem;
+  width: 100%;
+  background-color: #374151; /* bg-gray-700 */
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBar {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.progressBar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--progress-width, 0%);
+  transition: width 0.3s ease;
+}
+
+.progressBar.normal::before {
+  background: linear-gradient(to right, #9c2cf3, #f64661);
+}
+
+.progressBar.warning::before {
+  background-color: #f59e0b; /* bg-amber-500 */
+}
+
+.progressBar.critical::before {
+  background-color: #ef4444; /* bg-red-500 */
+}
+
+/* Width is controlled via CSS custom property set in the component */

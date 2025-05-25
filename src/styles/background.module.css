@@ -1,0 +1,38 @@
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+.backgroundBlob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.backgroundBlob.purple {
+  background-color: rgba(156, 44, 243, 0.2);
+  top: 25%;
+  left: 25%;
+  width: 24rem;
+  height: 24rem;
+  animation: float 15s ease-in-out infinite;
+}
+
+.backgroundBlob.pink {
+  background-color: rgba(246, 70, 97, 0.2);
+  bottom: 33%;
+  right: 25%;
+  width: 20rem;
+  height: 20rem;
+  animation: float 15s ease-in-out infinite 1s;
+}
+
+.dashboardContent {
+  position: relative;
+  z-index: 10;
+}

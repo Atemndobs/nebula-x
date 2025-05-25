@@ -1,0 +1,65 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Nebula Logix",
+  "logo": {
+    "light": "/public/images/logo-light.svg",
+    "dark": "/public/images/logo-dark.svg"
+  },
+  "favicon": "/public/images/favicon.svg",
+  "colors": {
+    "primary": "#4F46E5",
+    "light": "#6366F1",
+    "dark": "#4338CA"
+  },
+  "topbarLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Atemndobs/nebula-x"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "/introduction"
+  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction"
+      ]
+    },
+    {
+      "group": "Architecture",
+      "pages": [
+        "architecture/overview",
+        "architecture/tech-stack",
+        "architecture/folder-structure",
+        "architecture/flow-diagrams",
+        {
+          "group": "Architecture Decisions",
+          "pages": [
+            "architecture/decisions/0001-frontend-framework-selection",
+            "architecture/decisions/0002-state-management",
+            "architecture/decisions/0003-styling-solution",
+            "architecture/decisions/0004-authentication-strategy",
+            "architecture/decisions/0005-testing-strategy",
+            "architecture/decisions/0006-api-integration",
+            "architecture/decisions/0007-folder-structure",
+            "architecture/decisions/0008-performance-optimization",
+            "architecture/decisions/0009-dashboard-navigation",
+            "architecture/decisions/0010-routing-implementation",
+            "architecture/decisions/0011-shadcn-ui-integration",
+            "architecture/decisions/0012-aws-usage-dashboard"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/authentication",
+        "guides/routing"
+      ]
+    }
+  ]
+}

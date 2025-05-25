@@ -1,0 +1,68 @@
+# 0011: shadcn/ui Integration
+
+## Context and Problem Statement
+We needed a consistent, accessible, and customizable UI component library for the Nebula Logix dashboard. The requirements were:
+- Modern, clean design system
+- Full TypeScript support
+- Highly customizable theming
+- Accessible components out of the box
+- No external runtime dependencies
+- Easy to maintain and update
+
+## Considered Options
+
+### 1. Material-UI (MUI)
+- **Pros**: Comprehensive component library, good documentation, theming support
+- **Cons**: Larger bundle size, opinionated design, more difficult to customize
+
+### 2. Chakra UI
+- **Pros**: Accessible, good developer experience, built with TypeScript
+- **Cons**: Runtime dependency, larger bundle size, less control over styling
+
+### 3. Radix UI + Tailwind CSS
+- **Pros**: Unstyled, accessible components, full control over styling
+- **Cons**: Requires more setup, no pre-built components
+
+### 4. shadcn/ui
+- **Pros**:
+  - Uses Radix UI primitives under the hood
+  - Styled with Tailwind CSS
+  - Fully typed with TypeScript
+  - Copy-paste components (no runtime dependency)
+  - Highly customizable theming
+  - Excellent developer experience
+- **Cons**:
+  - Relatively new in the ecosystem
+  - Requires Tailwind CSS setup
+
+## Decision
+We chose **shadcn/ui** for the following reasons:
+1. **No Runtime Dependency**: Components are copied directly into the project
+2. **Full Control**: Complete access to component source code
+3. **Performance**: Only bundle what you use
+4. **Customization**: Easy to modify components to match design system
+5. **Accessibility**: Built with accessibility in mind using Radix UI
+6. **Developer Experience**: Excellent DX with TypeScript and Tailwind CSS
+
+## Implementation Details
+- Components are installed using the `npx shadcn-ui@latest add` command
+- Theme is configured in `tailwind.config.js`
+- Custom theme provider handles light/dark mode
+- Components are customized in the `components/ui` directory
+
+## Consequences
+- **Positive**:
+  - Faster development with pre-built, accessible components
+  - Consistent design language across the application
+  - Easy to maintain and update individual components
+  - Excellent TypeScript support
+- **Negative**:
+  - Learning curve for developers new to the approach
+  - Slightly more setup than traditional component libraries
+
+## Status
+Accepted
+
+## Related Decisions
+- [0003: Styling Solution](../decisions/0003-styling-solution.mdx)
+- [0008: Performance Optimization](../decisions/0008-performance-optimization.mdx)
