@@ -21,10 +21,10 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4">
       <div 
         className={`
-          rounded-[12px] transition-all duration-300 backdrop-blur-md
+          rounded-[12px] transition-all duration-300 backdrop-blur-[2px]
           ${isScrolled 
-            ? 'bg-black/80 py-3' 
-            : 'bg-black/50 py-5'
+            ? 'bg-black/75 py-5' 
+            : 'bg-black/20 py-7'
           }
         `}
       >
@@ -53,4 +53,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+export { Navbar };
