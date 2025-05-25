@@ -457,6 +457,27 @@
       ],
       "priority": "high",
       "subtasks": []
+    },
+    {
+      "id": 39,
+      "title": "Implement Dashboard Navigation",
+      "description": "Create responsive dashboard navigation with drawer and navbar",
+      "details": "- Create DashboardNavbar component\n- Implement DashboardDrawer component\n- Make navigation responsive\n- Add accessibility features\n- Test on different screen sizes",
+      "testStrategy": "",
+      "status": "done",
+      "dependencies": [],
+      "priority": "high",
+      "subtasks": []
+    },
+    {
+      "id": 40,
+      "title": "Set up Mintlify for documentation",
+      "description": "Configure Mintlify for project documentation",
+      "status": "pending",
+      "priority": "medium",
+      "dependencies": [1],
+      "details": "- Install Mintlify CLI\n- Set up Mintlify configuration file\n- Configure documentation structure\n- Add documentation components\n- Set up deployment pipeline\n- Add documentation guidelines to README\n- Create initial documentation pages",
+      "testStrategy": "Verify documentation builds locally and is accessible through Mintlify dev server"
     }
   ]
 }

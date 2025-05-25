@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { Provider } from '../../contexts/auth.types';
+import toast from 'react-hot-toast';
 
 // GitHub SVG Icon
 const GitHubIcon = () => (
@@ -66,14 +67,20 @@ const SocialButton = ({
 };
 
 export const SocialLoginButtons = () => {
-  const { signInWithProvider, loading } = useAuth();
+  const { signInWithProvider } = useAuth();
+  const [loadingProvider, setLoadingProvider] = useState<Provider | null>(null);
 
   const handleSocialLogin = async (provider: Provider) => {
+    setLoadingProvider(provider);
     try {
       await signInWithProvider(provider);
-    } catch (error) {
-      console.error(`Error signing in with ${provider}:`, error);
-      // Error is already handled in the AuthContext
+      toast.success(`Signed in with ${provider.charAt(0).toUpperCase() + provider.slice(1)}`);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to sign in';
+      console.error('Social login error:', err);
+      toast.error(`Error signing in with ${provider}: ${errorMessage}`);
+    } finally {
+      setLoadingProvider(null);
     }
   };
 
@@ -94,14 +101,14 @@ export const SocialLoginButtons = () => {
           icon={<GitHubIcon />}
           label="GitHub"
           onClick={() => handleSocialLogin('github')}
-          isLoading={loading}
+          isLoading={loadingProvider === 'github'}
         />
         <SocialButton
           provider="google"
           icon={<GoogleIcon />}
           label="Google"
           onClick={() => handleSocialLogin('google')}
-          isLoading={loading}
+          isLoading={loadingProvider === 'google'}
         />
       </div>
     </div>

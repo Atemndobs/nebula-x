@@ -20,15 +20,31 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 
 // Helper function for social login
 export const signInWithProvider = async (provider: 'github' | 'google') => {
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider,
-    options: {
-      redirectTo: supabaseRedirectUrl,
+  const baseOptions = {
+    redirectTo: supabaseRedirectUrl,
+  };
+
+  const providerOptions = {
+    github: {
+      ...baseOptions,
+      queryParams: {
+        // GitHub specific options if needed
+      },
+    },
+    google: {
+      ...baseOptions,
       queryParams: {
         access_type: 'offline',
         prompt: 'consent',
+        // Include any additional Google OAuth scopes here
+        // scope: 'email profile',
       },
     },
+  };
+
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider,
+    options: providerOptions[provider],
   });
 
   if (error) {

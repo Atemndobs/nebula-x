@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { AuthCallback } from './pages/AuthCallback';
 import { Navbar } from './components/Navbar';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { Spinner } from './components/ui/Spinner';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
@@ -16,18 +17,12 @@ import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { Spinner } from './components/ui/Spinner';
+import { Toaster } from 'react-hot-toast';
 
 const Home = () => {
-  const [showProfile, setShowProfile] = useState(false);
-  
-  const handleProfileClick = () => {
-    setShowProfile(!showProfile);
-  };
-
   return (
     <>
-      <Navbar onProfileClick={handleProfileClick} showProfile={showProfile} />
+      <Navbar />
       <main className="pt-16">
         <Hero />
         <About />
@@ -46,7 +41,6 @@ const Home = () => {
 
 const AppContent = () => {
   const { user, loading } = useAuth();
-  const [showProfile, setShowProfile] = useState(false);
   const location = useLocation();
   const isAuthCallback = location.pathname === '/auth/callback';
 
@@ -59,10 +53,7 @@ const AppContent = () => {
     }
   }, []);
 
-  const handleProfileClick = () => {
-    setShowProfile(!showProfile);
-  };
-
+  // Show loading spinner while checking auth state, except for auth callback route
   if (loading && !isAuthCallback) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -72,40 +63,60 @@ const AppContent = () => {
   }
 
   return (
-    <Routes>
+    <>
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 5000,
+          style: {
+            background: '#1F2937',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            iconTheme: {
+              primary: '#10B981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            duration: 5000,
+            iconTheme: {
+              primary: '#EF4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
+      <Routes>
         <Route path="/auth/callback" element={<AuthCallback />} />
-        <Route 
-          path="/login" 
-          element={user ? <Navigate to="/dashboard" replace /> : <LoginPage />} 
+        <Route
+          path="/login"
+          element={
+            user ? (
+              <Navigate to="/dashboard" replace />
+            ) : (
+              <LoginPage />
+            )
+          }
         />
         <Route
-          path="/dashboard"
+          path="/dashboard/*"
           element={
             <ProtectedRoute>
-              <>
-                {/* <Navbar onProfileClick={handleProfileClick} showProfile={showProfile} /> */}
-                <DashboardPage />
-              </>
+              <DashboardPage />
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/"
-          element={
-            <Home />
-          }
-        />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+    </>
   );
 };
 
 const App = () => {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
+  return <AppContent />;
 };
 
 export default App;

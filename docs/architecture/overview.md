@@ -24,8 +24,14 @@ Nebula Logix follows a modern, component-based frontend architecture with the fo
 
 ### 1. Presentation Layer
 - **Components**: Reusable UI components
+  - **Dashboard Components**: DashboardNavbar, DashboardDrawer, and other dashboard-specific UI elements
+  - **Navigation**: Responsive navigation components for both public and authenticated routes
 - **Pages**: Page-level components that compose smaller components
+  - **Public Pages**: Home, Login, etc.
+  - **Authenticated Pages**: Dashboard and its sub-pages
 - **Layouts**: Reusable layout templates
+  - **Public Layout**: For non-authenticated routes
+  - **Dashboard Layout**: For authenticated routes with navigation and sidebar
 
 ### 2. Application Layer
 - **Hooks**: Custom hooks for reusable logic
@@ -41,6 +47,31 @@ Nebula Logix follows a modern, component-based frontend architecture with the fo
 - **Build Tools**: Vite for fast development and production builds
 - **Testing**: Comprehensive test suite with unit, integration, and E2E tests
 - **CI/CD**: GitHub Actions for automated testing and deployment
+
+## Dashboard Navigation Architecture
+
+### Navigation Structure
+- **Top Navigation Bar (DashboardNavbar)**
+  - Fixed at the top of the viewport
+  - Contains app title and main navigation controls
+  - Responsive design that adapts to different screen sizes
+
+- **Side Drawer (DashboardDrawer)**
+  - Slides in from the left on mobile and tablet
+  - Fixed position on desktop for larger screens
+  - Contains navigation links and user actions
+  - Implements proper focus management and keyboard navigation
+
+### State Management
+- **Drawer State**: Managed locally within the DashboardPage component
+- **Authentication State**: Handled by the AuthContext
+- **Responsive Behavior**: Uses Tailwind's responsive utilities
+
+### Accessibility Features
+- Proper ARIA attributes for screen readers
+- Keyboard navigation support
+- Focus management for modals and drawers
+- Sufficient color contrast
 
 ## Data Flow
 

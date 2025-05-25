@@ -1,16 +1,18 @@
 import { createContext } from 'react';
-import { User } from '@supabase/supabase-js';
+import { User, Session } from '@supabase/supabase-js';
 
 type Provider = 'github' | 'google';
 
 type AuthContextType = {
   user: User | null;
+  session: Session | null;
   loading: boolean;
+  error: string | null;
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string) => Promise<void>;
   signInWithProvider: (provider: Provider) => Promise<void>;
   signOut: () => Promise<void>;
-  error: string | null;
+  resetPassword?: (email: string) => Promise<void>;
 };
 
 export const AuthContext = createContext<AuthContextType | null>(null);
