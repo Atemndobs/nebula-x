@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { SocialLoginButtons } from '../components/auth/SocialLoginButtons';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -94,6 +95,10 @@ export const LoginPage = () => {
             </button>
           </div>
         </form>
+        
+        <div className="mt-6">
+          <SocialLoginButtons />
+        </div>
       </div>
     </div>
   );
