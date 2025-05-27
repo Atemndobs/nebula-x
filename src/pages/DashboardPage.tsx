@@ -40,7 +40,7 @@ export const DashboardPage = () => {
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-6">
                   <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                    <span className="text-[#f64661]">AWS Resources</span> Dashboard
+                    <span className="text-[#f64661]">Resources</span> Dashboard
                   </h1>
                   <p className="text-gray-300">
                     Welcome back, {user?.email?.split('@')[0] || 'User'}. Here's an overview of your AWS resources.

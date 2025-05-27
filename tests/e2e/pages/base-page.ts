@@ -1,15 +1,14 @@
 import { Page } from '@playwright/test';
 
 export class BasePage {
-  constructor(public readonly page: Page) {}
+  constructor(protected page: Page) {}
 
-  async navigate(path = '') {
-    await this.page.goto(`http://localhost:5174${path}`);
-    await this.page.waitForLoadState('networkidle');
+  async goto(path: string) {
+    await this.page.goto(`http://localhost:5173${path}`);
   }
 
-  async getPageTitle() {
-    return await this.page.title();
+  async getTitle() {
+    return this.page.title();
   }
 
   async takeScreenshot(name: string) {

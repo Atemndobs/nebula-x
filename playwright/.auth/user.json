@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:5173",
+      "localStorage": [
+        {
+          "name": "sb-ytqwwxlqqpqhhcpcqxax-auth-token",
+          "value": "{\"access_token\":\"eyJhbGciOiJIUzI1NiIsImtpZCI6IlExVVVwT3RDZml0WDlqN3QiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3l0cXd3eGxxcXBxaGhjcGNxeGF4LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiYmJmMjc2MC05ZDkwLTRiMjUtOWE5OS03OTJhM2VlYTBlZGYiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ4MzU2MjAxLCJpYXQiOjE3NDgzNTI2MDEsImVtYWlsIjoiYXRlbW5kb2JzQHlhaG9vLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzQ4MzUyNjAxfV0sInNlc3Npb25faWQiOiI4YmE2ODQ5OC1jYTgyLTQ3OWItYjliMS1jNDQ1ZDI5YjgwNjkiLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.4mPl6PMWVM4niqcantpKVjm0DEKbQskbBIhnfKLWWZY\",\"token_type\":\"bearer\",\"expires_in\":3600,\"expires_at\":1748356201,\"refresh_token\":\"5d5onpvrc2ks\",\"user\":{\"id\":\"bbbf2760-9d90-4b25-9a99-792a3eea0edf\",\"aud\":\"authenticated\",\"role\":\"authenticated\",\"email\":\"atemndobs@yahoo.com\",\"email_confirmed_at\":\"2025-05-25T12:22:41.784296Z\",\"phone\":\"\",\"confirmed_at\":\"2025-05-25T12:22:41.784296Z\",\"last_sign_in_at\":\"2025-05-27T13:30:01.31718783Z\",\"app_metadata\":{\"provider\":\"email\",\"providers\":[\"email\"]},\"user_metadata\":{\"email_verified\":true},\"identities\":[{\"identity_id\":\"574c94bd-4b18-47b4-b9a1-15d3c84ab969\",\"id\":\"bbbf2760-9d90-4b25-9a99-792a3eea0edf\",\"user_id\":\"bbbf2760-9d90-4b25-9a99-792a3eea0edf\",\"identity_data\":{\"email\":\"atemndobs@yahoo.com\",\"email_verified\":false,\"phone_verified\":false,\"sub\":\"bbbf2760-9d90-4b25-9a99-792a3eea0edf\"},\"provider\":\"email\",\"last_sign_in_at\":\"2025-05-25T12:22:41.771976Z\",\"created_at\":\"2025-05-25T12:22:41.772034Z\",\"updated_at\":\"2025-05-25T12:22:41.772034Z\",\"email\":\"atemndobs@yahoo.com\"}],\"created_at\":\"2025-05-25T12:22:41.738646Z\",\"updated_at\":\"2025-05-27T13:30:01.322324Z\",\"is_anonymous\":false}}"
+        }
+      ]
+    }
+  ]
+}
