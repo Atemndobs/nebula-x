@@ -1,0 +1,176 @@
+---
+title: "0013 - Playwright E2E Testing Implementation"
+date: 2025-05-27
+deciders: ["Nebula Logix Team"]
+status: accepted
+---
+
+# Playwright E2E Testing Implementation
+
+## Context and Problem Statement
+
+As the Nebula Logix application grows, we need a reliable way to test critical user flows end-to-end. We need a testing solution that is:
+- Reliable and fast
+- Easy to write and maintain
+- Provides good debugging capabilities
+- Works well with our existing tech stack
+- Supports visual regression testing
+
+## Decision Drivers
+
+* Need for reliable end-to-end testing
+* Developer experience and test reliability
+* Integration with existing CI/CD pipeline
+* Support for modern web features
+* Cross-browser testing capabilities
+
+## Considered Options
+
+1. **Playwright**
+   - ✅ Fast and reliable
+   - ✅ Excellent debugging tools
+   - ✅ Built-in waiting and auto-waiting
+   - ✅ Cross-browser support
+   - ✅ Visual regression testing
+
+2. **Cypress**
+   - ❌ Slower execution
+   - ❌ Limited multi-tab/window support
+   - ❌ More complex setup for visual testing
+
+3. **Selenium**
+   - ❌ More flaky tests
+   - ❌ Slower execution
+   - ❌ More boilerplate code
+
+## Decision
+
+We will use **Playwright** for our end-to-end testing needs because:
+
+* Superior performance and reliability
+* Excellent developer experience with built-in test runner
+* Strong TypeScript support
+* Built-in visual regression testing
+* Active community and good documentation
+
+## Implementation Details
+
+### Test Structure
+
+```
+tests/e2e/
+  ├── pages/                  # Page Object Models
+  │   ├── base-page.ts        # Base page with common functionality
+  │   ├── login-page.ts       # Login page interactions
+  │   ├── dashboard-page.ts   # Dashboard page interactions
+  │   └── projects-page.ts    # Projects page interactions
+  ├── utils/                  # Test utilities
+  │   └── test-utils.ts       # Helper functions
+  ├── auth.spec.ts            # Authentication tests
+  ├── dashboard.spec.ts       # Dashboard tests
+  └── projects.spec.ts        # Projects page tests
+```
+
+### Page Object Model
+
+We use the Page Object Model pattern to make tests more maintainable:
+
+```typescript
+// Example: projects-page.ts
+import { expect, Page } from '@playwright/test';
+import { BasePage } from './base-page';
+
+export class ProjectsPage extends BasePage {
+  constructor(page: Page) {
+    super(page);
+  }
+
+  // Page elements
+  private readonly pageTitle = this.page.locator('h1').filter({ hasText: /projects/i });
+  private readonly customerId = this.page.locator('[data-testid="customer-id"]');
+  
+  // Navigation
+  async navigate() {
+    await this.goto('/dashboard/projects');
+    await this.page.waitForLoadState('networkidle');
+    await this.pageTitle.waitFor({ state: 'visible' });
+  }
+  
+  // Assertions
+  async isCurrentPage() {
+    await expect(this.page).toHaveURL(/.*\/dashboard\/projects/);
+    await expect(this.pageTitle).toBeVisible();
+  }
+  
+  // Actions
+  async getCustomerId(): Promise<string | null> {
+    await this.customerId.waitFor({ state: 'visible' });
+    return await this.customerId.textContent();
+  }
+}
+```
+
+### Test Example
+
+```typescript
+// projects.spec.ts
+import { test, expect } from './config/test-setup';
+import { ProjectsPage } from './pages/projects-page';
+
+test.describe('Projects Page', () => {
+  let projectsPage: ProjectsPage;
+
+  test.beforeEach(async ({ page }) => {
+    projectsPage = new ProjectsPage(page);
+    await projectsPage.navigate();
+    await projectsPage.isCurrentPage();
+  });
+
+  test('should display customer ID on the page', async () => {
+    const customerId = await projectsPage.getCustomerId();
+    expect(customerId).toMatch(/^CUST-\d+$/);
+    
+    // Take a screenshot for visual verification
+    const page = projectsPage.getPageForTesting();
+    await page.screenshot({ path: 'test-results/screenshots/projects-page-customer-id.png' });
+  });
+});
+```
+
+### Running Tests
+
+Run tests interactively with UI:
+```bash
+npx playwright test --ui
+```
+
+Run specific test file:
+```bash
+npx playwright test tests/e2e/projects.spec.ts
+```
+
+Run in headless mode (CI):
+```bash
+npx playwright test
+```
+
+## Consequences
+
+### Positive
+
+* More reliable end-to-end tests
+* Faster test execution
+* Better debugging capabilities
+* Visual regression testing support
+* Cross-browser testing
+
+### Negative
+
+* Additional dependency to maintain
+* Learning curve for team members
+* Need to maintain test data
+
+## Related Decisions
+
+- [0005 - Testing Strategy](../decisions/0005-testing-strategy.md)
+- [0012 - AWS Usage Dashboard Implementation](../decisions/0012-aws-usage-dashboard.mdx)

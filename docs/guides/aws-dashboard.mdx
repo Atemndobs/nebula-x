@@ -1,7 +1,21 @@
 # AWS Usage Dashboard Guide
 
 ## Overview
-The AWS Usage Dashboard provides a comprehensive view of your AWS resources, including EC2 instances, S3 buckets, IAM configurations, and DynamoDB tables. This guide covers the dashboard's features and how to use them effectively.
+The AWS Usage Dashboard provides a comprehensive view of your AWS resources, including EC2 instances, S3 buckets, IAM configurations, and DynamoDB tables. This guide covers the dashboard's features, testing, and how to use them effectively.
+
+## Recent Changes (May 2025)
+
+### Testing
+- Added Playwright end-to-end tests for critical user flows
+- Implemented Page Object Model pattern for maintainable tests
+- Added visual regression testing for UI consistency
+- Test coverage for customer ID visibility and data display
+
+### AWS Integration
+- Added support for multiple AWS accounts
+- Improved error handling and retry logic
+- Added caching for better performance
+- Enhanced security with IAM role assumption
 
 ## Getting Started
 
@@ -42,12 +56,53 @@ The AWS Usage Dashboard provides a comprehensive view of your AWS resources, inc
 - **Item Count**: Monitor the number of items in each table
 - **Performance Metrics**: Track request latency and throttling
 
+## Testing the Dashboard
+
+### Running Tests
+
+#### Prerequisites
+- Node.js 16+
+- Playwright installed (`npx playwright install`)
+- AWS credentials configured
+
+#### Running Tests
+
+Run all tests:
+```bash
+npx playwright test
+```
+
+Run AWS dashboard tests specifically:
+```bash
+npx playwright test tests/e2e/aws-dashboard.spec.ts
+```
+
+Run with UI mode for debugging:
+```bash
+npx playwright test --ui
+```
+
+### Test Coverage
+
+- **Authentication**: Verify login and access control
+- **Data Loading**: Test data fetching and display
+- **Interactions**: Test user interactions with charts and tables
+- **Responsiveness**: Verify UI on different screen sizes
+- **Error Handling**: Test error states and recovery
+
 ## Best Practices
 
 ### Cost Optimization
 - Use the cost overview to identify underutilized resources
 - Set up budget alerts in the settings
 - Regularly review and clean up unused resources
+
+### Testing Best Practices
+- Write atomic, independent tests
+- Use data-testid attributes for reliable element selection
+- Mock external dependencies in unit tests
+- Run tests in CI/CD pipeline
+- Update visual baselines when UI changes are intentional
 
 ### Security
 - Follow the principle of least privilege for IAM users

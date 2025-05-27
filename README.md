@@ -7,6 +7,8 @@ A modern cloud solutions platform built with React, TypeScript, and Supabase.
 - **Authentication**: Email/password and social login (GitHub, Google)
 - **Responsive Design**: Works on all devices
 - **Modern Stack**: React, TypeScript, Tailwind CSS, Vite
+- **AWS Integration**: Monitor and manage AWS resources
+- **Testing**: Comprehensive test suite with Playwright
 - **Documentation**: Comprehensive guides and API reference
 
 ## Getting Started
@@ -35,6 +37,15 @@ A modern cloud solutions platform built with React, TypeScript, and Supabase.
    ```env
    VITE_SUPABASE_URL=your_supabase_url
    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   
+   # Testing environment
+   TEST_EMAIL=test@example.com
+   TEST_PASSWORD=testpassword123
+   
+   # AWS Configuration (for AWS dashboard)
+   AWS_ACCESS_KEY_ID=your_aws_access_key
+   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+   AWS_REGION=your_aws_region
    ```
 
 4. Start the development server:
@@ -43,6 +54,35 @@ A modern cloud solutions platform built with React, TypeScript, and Supabase.
    ```
 
 5. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Testing
+
+We use Playwright for end-to-end testing. To run the tests:
+
+```bash
+# Install Playwright browsers
+npx playwright install
+
+# Run all tests
+npm test
+
+# Run tests with UI
+npx playwright test --ui
+
+# Run specific test file
+npx playwright test tests/e2e/projects.spec.ts
+```
+
+### Test Structure
+
+- `tests/e2e/`: End-to-end tests
+  - `pages/`: Page Object Models
+  - `*.spec.ts`: Test files
+- `test-results/`: Test artifacts and screenshots
+
+## AWS Integration
+
+The AWS dashboard provides monitoring and management of AWS resources. See the [AWS Dashboard Guide](docs/guides/aws-dashboard.mdx) for more information.
 
 ## Documentation
 
