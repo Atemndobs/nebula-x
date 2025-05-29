@@ -14,8 +14,8 @@ test.describe('Projects Page', () => {
     // Get the customer ID element and verify it's visible and contains expected format
     const customerId = await projectsPage.getCustomerId();
     
-    // Verify customer ID is in the expected format (e.g., "CUST-1234")
-    expect(customerId).toMatch(/^CUST-\d+$/);
+    // Verify customer ID is in the expected format (e.g., "NLX-2025-1858")
+    expect(customerId).toMatch(/^NLX-\d{4}-\d{4}$/);
     
     // Take a screenshot for visual verification
     const page = projectsPage.getPageForTesting();
